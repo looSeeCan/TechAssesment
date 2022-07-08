@@ -30,34 +30,53 @@ const TechAssessment =() => {
                 let y = Math.floor(Math.random() * (max - min + 1)) + min;
                 return y;
             }
+            //make a function that splits a sting to an array
+            const splitString = (array) => {
+                return array.split(",");
+            }
             const generation = (min, max, x) => {
                 // console.log(min, max);
                 let y = getRndInteger(min, max);//calls the function and returns a random number
                 console.log(y,x);
+                
+                const stringMale = "Lucycan,Great Grandfather,Grandfather,Father,Son,GrandSon";
+                const arrayMale = splitString(stringMale);
+                console.log(arrayMale);
+                const stringFemale = "Lucycan,Great Grandmother,Grandmother,Mother,Daughter,GrandDaughter";
+                const arrayFemale = splitString(stringFemale);
+                console.log(arrayFemale);
 
-                if(x === true && y === 0) {
-                    console.log("Lucycan LY");
-                }else if(x && y === -3) {
-                    console.log("Great Grandfather");
-                }else if(x && y === -2) {
-                    console.log("GrandFather");
-                }else if(x && y === -1) {
-                    console.log("Father");
 
-                }else if(!x && y === -3) {
-                    console.log("Great GrandMother");
-                }else if(!x && y === -2) {
-                    console.log("Grandmother");
-                }else if(!x && y === -1) {
-                    console.log("mother");
-                }else{
-                    console.log("Your descendant");
-                }
+                if(x) {
+                    const a = arrayMale[y];
+                    console.log(a);
+                }else {
+                    const b = arrayFemale[y];
+                    console.log(b);
+                };
+                // if(x === true && y === 0) {
+                //     console.log("Lucycan LY");
+                // }else if(x && y === -3) {
+                //     console.log("Great Grandfather");
+                // }else if(x && y === -2) {
+                //     console.log("GrandFather");
+                // }else if(x && y === -1) {
+                //     console.log("Father");
+
+                // }else if(!x && y === -3) {
+                //     console.log("Great GrandMother");
+                // }else if(!x && y === -2) {
+                //     console.log("Grandmother");
+                // }else if(!x && y === -1) {
+                //     console.log("mother");
+                // }else{
+                //     console.log("Your descendant");
+                // }
             }
             const bool = Math.random() < 0.5;//generate a random true, false
             // const gen = generation(-3, 3, bool);
             // console.log(gen);//why wont it let me do this
-            generation(-3, 1, bool);//min, max, bool
+            generation(0, 5, bool);//min, max, bool
         console.groupEnd();
     })();
 
